@@ -2,19 +2,49 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+// マス目
 class Square extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         value: null,
+    //     }
+    // }
     render() {
         return (
-            <button className="square">
+            <button
+                className="square"
+                onClick={() => this.props.onClick()}
+            s>
                 {/* TODO */}
+                {this.props.value}
             </button>
         );
     }
 }
 
+// 盤面
 class Board extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            squares: Array(9).fill(null),
+        }
+    }
+    handleClick(i) {
+        const squares = this.state.squares.slice();
+        squares[i] = 'X';
+        this.setState({squares: squares})
+    }
+
     renderSquare(i) {
-        return <Square />;
+        return (
+            <Square
+                value={this.state.squares[i]}
+                onClick={() => this.handleClick(i)}
+            />
+        )
+        // return <Square value={i}/>;
     }
 
     render() {
@@ -43,6 +73,7 @@ class Board extends React.Component {
     }
 }
 
+// ゲーム
 class Game extends React.Component {
     render() {
         return (
