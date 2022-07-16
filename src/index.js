@@ -3,25 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 // マス目
-class Square extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         value: null,
-    //     }
-    // }
-    render() {
-        return (
-            <button
-                className="square"
-                onClick={() => this.props.onClick()}
-            s>
-                {/* TODO */}
-                {this.props.value}
-            </button>
-        );
-    }
+function Square(props) {
+    return (
+        <button className="square" onClick={props.onClick}>
+            {props.value}
+        </button>
+    );
 }
+// class Square extends React.Component {
+//     render() {
+//         return (
+//             <button
+//                 className="square"
+//                 onClick={() => this.props.onClick()}
+//             >
+//                 {this.props.value}
+//             </button>
+//         );
+//     }
+// }
 
 // 盤面
 class Board extends React.Component {
