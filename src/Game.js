@@ -12,7 +12,6 @@ export const Game = () => {
 
     const handleClick = (i) => {
         const copyHistory = history.slice(0, stepNumber + 1);
-        // const history = history.slice(0, stepNumber + 1);
         const current = copyHistory[copyHistory.length - 1];
         const squares = current.squares.slice();
         if (calculateWinner(squares) || squares[i]) {
